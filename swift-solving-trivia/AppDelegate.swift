@@ -12,11 +12,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    /*
-     
-     write your function here
-     
-     */
-
+    func solveTrivia(trivia: [String : String] ) -> String {
+        
+        var whatState = ""
+        
+        for (state, capital) in trivia {
+            let stateArr = Set(Array(state.lowercaseString.characters))
+            let capArr = Set(Array(capital.lowercaseString.characters))
+            let commonLetters = Array(stateArr.intersect(capArr))
+            
+            if commonLetters.count == 0 {
+                whatState = state
+            }
+        }
+        
+        return whatState
+        
+    }
+    
+    
 }
-
